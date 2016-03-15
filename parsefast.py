@@ -3,15 +3,13 @@ aar_MW = {'A':71.0779, 'R':156.1857, 'N':114.1026, 'D':115.0874, 'C':103.1429, '
 'F':147.1739, 'P':97.1152, 'S':87.0773, 'T':101.1039, 'U':150.0379, 'W':186.2099, 'Y':163.1733, 'V':99.1311}
 
 with open('hemoglobin.txt', 'r') as f:
-    count = += aar_MW.value()
+    header = f.readline()
+    sequence = ''
+    print 'FASTA file: ' + header
+    print 'amino acid sequence:\n'
+    for x in f:
+        print x
     
 
 
-"""
-l = " "
-with open('hemoglobin.txt', 'r') as f:
-    header = f.readline()
-    for x in f:
-        l += x.strip('\n')
-"""
 
