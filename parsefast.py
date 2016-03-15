@@ -17,11 +17,6 @@ with open('hemoglobin.txt', 'r') as f:
 
 
 
-
-
-
-
-
 """
 l = ""
 with open('hemoglobin.txt', 'r') as f:
