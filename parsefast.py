@@ -6,13 +6,15 @@ aar_MW = {'A':71.0779, 'R':156.1857, 'N':114.1026, 'D':115.0874, 'C':103.1429, '
 
 with open('hemoglobin.txt', 'r') as f:
     header = f.readline()
-    sequence = ''
+    sequence = '' # not in use yet
     count = 0
-    print 'FASTA file: ' + header
-    print 'amino acid sequence:\n'
-    for x in f:
-        for character in x:
-            count += aar_MW[character]
+    print 'FASTA file:\n' + header
+    print 'amino acid sequence:'
+    for x in f: # x is a list of strings
+        print x
+        for c in x: # c is each individual amino acid in the string x
+            count += aar_MW[c]
+    print 'protein weight (Da):
     print count
 
 
