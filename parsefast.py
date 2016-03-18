@@ -13,7 +13,7 @@ with open('hemoglobin.txt', 'r') as f:
         print x
 
 
-# alex is cool 
+
 
 
 
