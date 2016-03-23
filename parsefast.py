@@ -15,7 +15,7 @@ for line in f:
         sequence += line.strip('\n')
 
 
-# calculate total number of amino acids
+# calculate total number of amino acids in sequence
 def calc_AA_tot(sequence):
     return len(sequence)
 
@@ -26,17 +26,18 @@ def calc_MW(sequence):
         count += aar_MW[aminoacid]
     return count
 
+# calculate percent of each amino acid in sequence
+def percent_each_AA(sequence):
+    all_AA = 'ARNDCEQGHILKMFPSTUWYV'
+    length = len(sequence)
+    for AA in all_AA:
+        num_AA = sequence.count(AA)
+        percent_AA = num_AA * 100 / length
+        print str(percent_AA) + '%' + ' of ' + AA + ' (' + str(num_AA) + ')'
 
 print calc_AA_tot(sequence)
 print calc_MW(sequence)
-
-
-
-
-
-
-
-
+percent_each_AA(sequence)
 
 
 
