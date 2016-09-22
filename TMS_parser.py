@@ -9,8 +9,8 @@ protein_sequence = ''
 # FILE_INPUT is the name of the .txt FASTA file you wish to parse,
 # FILE_OUTPUT will be the file name in which the output of this program is
 # placed into, once the code is run.
-FILE_INPUT = 'BetaBarrelTrimericSeq.txt'
-FILE_OUTPUT = 'BetaBarrelTrimericSeqOutput3.txt'
+FILE_INPUT = 'InnerAlphaHelicalProteinsSeq.txt'
+FILE_OUTPUT = 'InnerAlphaHelicalProteinsSeqOutput.txt'
 sequence_file = open(FILE_INPUT)
 output_file = open(FILE_OUTPUT, 'w')
 
