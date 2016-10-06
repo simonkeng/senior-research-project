@@ -1,5 +1,4 @@
 #!/usr/bin/env python
-
 # molecular weights of amino acid residues, in g/mol
 aar_MW = {
     'A': 71.0779,
@@ -25,14 +24,32 @@ aar_MW = {
     'V': 99.1311,
     '\n': 0
 }
-
 # pI calculation used on line 66 "average_pI()", has minimal accuracy and does not consider several other
-# factors necessary when calculating the isoelectric point. This was an experiment.  
-pI_each_AA = {'G': 5.97, 'A': 6.00, 'V': 5.96, 'L': 5.98, 'I': 6.02, 'M': 5.74, 'P': 6.30, 'F': 5.48, 'W': 5.89, 'N': 5.41,
-'Q': 5.65, 'S': 5.68, 'T': 5.60, 'Y': 5.66, 'C': 5.07, 'D': 2.77, 'E': 3.22, 'K': 9.74, 'R': 10.76, 'H': 7.59}
+# factors necessary when calculating the isoelectric point. This was an experiment.
+pI_each_AA = {
+    'G': 5.97,
+    'A': 6.00,
+    'V': 5.96,
+    'L': 5.98,
+    'I': 6.02,
+    'M': 5.74,
+    'P': 6.30,
+    'F': 5.48,
+    'W': 5.89,
+    'N': 5.41,
+    'Q': 5.65,
+    'S': 5.68,
+    'T': 5.60,
+    'Y': 5.66,
+    'C': 5.07,
+    'D': 2.77,
+    'E': 3.22,
+    'K': 9.74,
+    'R': 10.76,
+    'H': 7.59
+}
 
 file_name = 'acetylcholinesterase.txt'
-
 f = open(file_name, 'r')
 sequence = ''
 header = ''
@@ -62,7 +79,6 @@ def percent_each_AA(sequence):
         percent_AA = num_AA * 100 / length
         print str(percent_AA) + '%' + ' of ' + AA + ' (' + str(num_AA) + ')'
 
-
 # calculate (theoretical pI) <-- MINIMAL ACCURACY
 # sum up all the pI's of each amino acid in the sequence and divide by length of the sequence
 def average_pI(sequence):
@@ -72,11 +88,15 @@ def average_pI(sequence):
         count_2 = count / len(sequence)
     return count_2
 
+# command line tool visualization here:
+print 'Number of amino acids in the sequence:'
 print calc_AA_tot(sequence)
+print 'Molecular weight of sequence (g/mol):'
 print calc_MW(sequence)
+print 'Average (theoretical) pI:'
 print average_pI(sequence)
+print 'Percentage of each amino acid in sequence:'
 percent_each_AA(sequence)
-# print segment_seq(sequence)
 
 """
 Additional Notes:
