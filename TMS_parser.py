@@ -9,8 +9,8 @@ protein_sequence = ''
 # FILE_INPUT is the name of the .txt FASTA file you wish to parse,
 # FILE_OUTPUT will be the file name in which the output of this program is
 # placed into, once the code is run.
-FILE_INPUT = 'InnerAlphaHelicalProteinsSeq.txt'
-FILE_OUTPUT = 'InnerAlphaHelicalProteinsSeqOutput.txt'
+FILE_INPUT = 'BetaBarrelTrimericSeq.txt'
+FILE_OUTPUT = 'BetaBarrelTrimericSeqOutput150.txt'
 sequence_file = open(FILE_INPUT)
 output_file = open(FILE_OUTPUT, 'w')
 
@@ -70,8 +70,8 @@ for key in protein_names_and_segments.keys():
 			# debug # print aminoacid
 			# debug # print amino_acid_hydrophobicities.get(aminoacid)
 			hydrophobicity += amino_acid_hydrophobicities.get(aminoacid)
-			xcomp += amino_acid_hydrophobicities.get(aminoacid) * math.cos(100 * index) # for alpha helices use 100
-			ycomp += amino_acid_hydrophobicities.get(aminoacid) * math.sin(100 * index) # for beta sheets use 180
+			xcomp += amino_acid_hydrophobicities.get(aminoacid) * math.cos(150 * index) # for alpha helices use 100
+			ycomp += amino_acid_hydrophobicities.get(aminoacid) * math.sin(150 * index) # for beta sheets use 180 ideal, 160 or 150 real?
 			moment = math.sqrt(math.pow(xcomp, 2) + math.pow(ycomp, 2))
 		output_file.write(key + '\t' + str(segment[0]) + '\t' + str(segment[1]) + '\t' + segment_sequence + '\t'\
 		+ str(hydrophobicity) + '\t' + str(moment) + '\n')
