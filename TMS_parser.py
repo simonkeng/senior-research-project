@@ -10,7 +10,7 @@ protein_sequence = ''
 # FILE_OUTPUT will be the file name in which the output of this program is
 # placed into, once the code is run.
 FILE_INPUT = 'BetaBarrelTrimericSeq.txt'
-FILE_OUTPUT = 'BetaBarrelTrimericSeqOutput150.txt'
+FILE_OUTPUT = 'BetaBarrelTrimericSeqOutput160rads.txt'
 sequence_file = open(FILE_INPUT)
 output_file = open(FILE_OUTPUT, 'w')
 
@@ -20,7 +20,7 @@ amino_acid_hydrophobicities = {
 	'C': -0.02,
 	'D': 3.64,
 	'E': 3.63,
-	'F': -1.7,
+	'F': -1.71,
 	'G': 1.15,
 	'H': 0.11,
 	'I': -1.12,
@@ -70,8 +70,8 @@ for key in protein_names_and_segments.keys():
 			# debug # print aminoacid
 			# debug # print amino_acid_hydrophobicities.get(aminoacid)
 			hydrophobicity += amino_acid_hydrophobicities.get(aminoacid)
-			xcomp += amino_acid_hydrophobicities.get(aminoacid) * math.cos(150 * index) # for alpha helices use 100
-			ycomp += amino_acid_hydrophobicities.get(aminoacid) * math.sin(150 * index) # for beta sheets use 180 ideal, 160 or 150 real?
+			xcomp += amino_acid_hydrophobicities.get(aminoacid) * math.cos(math.radians(160) * index) # for alpha helices use 100
+			ycomp += amino_acid_hydrophobicities.get(aminoacid) * math.sin(math.radians(160) * index) # for beta sheets use 180 ideal, 160 or 150 real?
 			moment = math.sqrt(math.pow(xcomp, 2) + math.pow(ycomp, 2))
 		output_file.write(key + '\t' + str(segment[0]) + '\t' + str(segment[1]) + '\t' + segment_sequence + '\t'\
 		+ str(hydrophobicity) + '\t' + str(moment) + '\n')
