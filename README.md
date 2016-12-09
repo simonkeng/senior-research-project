@@ -1,4 +1,6 @@
-# senior-research-project
+# Bioinformatics Research 
+Undergraduate Research Project in CHEM 499 & CHEM 399
+
 Research students: Simon Keng, Bin Tu
 
 Principal Investigator: Sajith Jayasinghe
