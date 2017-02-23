@@ -12,6 +12,7 @@ FILE_OUTPUT = 'BetaBarrelTrimericSeqHelicityOutput.txt'
 sequence_file = open(FILE_INPUT)
 output_file = open(FILE_OUTPUT, 'w')
 
+### not being used ###
 # TM Finder helicity scale by Charles M. Deber, et al.
 helical_propensity_scale = {
     'F': 1.26,
@@ -36,6 +37,7 @@ helical_propensity_scale = {
     'K': 0.88
 }
 
+### not being used ###
 # hydrophobicity scale: Wimley & White
 amino_acid_hydrophobicities = {
     'A': 0.5,
@@ -68,10 +70,8 @@ def get_protein_name(line):
 def get_segments(line):
     segment = []
     for element in line.lstrip('>').split(':')[1].split(';'):
-        segment.append([int(element.split('.')[1].split(',')[0]), \
-            int(element.split('.')[1].split(',')[1])])
+        segment.append([int(element.split('.')[1].split(',')[0]), int(element.split('.')[1].split(',')[1])])
     return segment
-
 
 
 for line in sequence_file:
@@ -88,15 +88,30 @@ for key in protein_names_and_segments.keys():
     for segment in protein_names_and_segments.get(key):
 
         segment_sequence = protein_names_and_sequences.get(key)[segment[0] - 1:segment[1]]
-        hydrophobicity = 0.0
-        helicity = 0.0
 
-        for (index, aminoacid) in enumerate(segment_sequence):
-            helicity += helical_propensity_scale.get(aminoacid)
-            hydrophobicity += amino_acid_hydrophobicities.get(aminoacid)
+        Gly = segment_sequence.count('G')
+        Ala = segment_sequence.count('A')
+        Cys = segment_sequence.count('C')
+        Trp = segment_sequence.count('W')
+        Tyr = segment_sequence.count('Y')
+        Pro = segment_sequence.count('P')
+        Thr = segment_sequence.count('T')
+        Ser = segment_sequence.count('S')
+        Asn = segment_sequence.count('N')
+        Gln = segment_sequence.count('Q')
+        Asp = segment_sequence.count('D')
+        Glu = segment_sequence.count('E')
+        His = segment_sequence.count('H')
+        Lys = segment_sequence.count('K')
+        Arg = segment_sequence.count('R')
+        Met = segment_sequence.count('M')
+        Phe = segment_sequence.count('F')
+        Leu = segment_sequence.count('L')
+        Val = segment_sequence.count('V')
+        Ile = segment_sequence.count('I')
 
-        output_file.write(key + '\t' + str(segment[0]) + '\t' + str(segment[1]) + \
-            '\t' + segment_sequence + '\t' + str(helicity) + '\t' + str(hydrophobicity) + '\n')
+
+        output_file.write(key + '\t' + str(segment[0]) + '\t' + str(segment[1]) + '\t' + segment_sequence + '\t' + str(len(segment_sequence)) + '\t' + 'Gly' + '\t' + str(Gly) + '\t' + 'Ala' + '\t' + str(Ala) + '\t' + 'Cys' + '\t' + str(Cys) + '\t' + 'Trp' + '\t' + str(Trp) + '\t' + 'Tyr' + '\t' + str(Tyr) + '\t' + 'Pro' + '\t' + str(Pro) + '\t' + 'Thr' + '\t' + str(Thr) + '\t' + 'Ser' + '\t' + str(Ser) + '\t' + 'Asn' + '\t' + str(Asn) + '\t' + 'Gln' + '\t' + str(Gln) + '\t' + 'Asp' + '\t' + str(Asp) + '\t' + 'Glu' + '\t' + str(Glu) + '\t' + 'His' + '\t' + str(His) + '\t' + 'Lys' + '\t' + str(Lys) + '\t' + 'Arg' + '\t' + str(Arg) + '\t' + 'Met' + '\t' + str(Met) + '\t' + 'Phe' + '\t' + str(Phe) + '\t' + 'Leu' + '\t' + str(Leu) + '\t' + 'Val' + '\t' + str(Val) + '\t' + 'Ile' + '\t' + str(Ile) + '\n')
 
 sequence_file.close()
 output_file.close()
