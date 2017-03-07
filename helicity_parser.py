@@ -70,7 +70,8 @@ def get_protein_name(line):
 def get_segments(line):
     segment = []
     for element in line.lstrip('>').split(':')[1].split(';'):
-        segment.append([int(element.split('.')[1].split(',')[0]), int(element.split('.')[1].split(',')[1])])
+        segment.append([int(element.split('.')[1].split(',')[0]),
+                        int(element.split('.')[1].split(',')[1])])
     return segment
 
 
@@ -99,7 +100,8 @@ for key in protein_names_and_segments.keys():
 
     for segment in protein_names_and_segments.get(key):
 
-        segment_sequence = protein_names_and_sequences.get(key)[segment[0] - 1:segment[1]]
+        segment_sequence = protein_names_and_sequences.get(
+            key)[segment[0] - 1:segment[1]]
 
         Gly = segment_sequence.count('G')
         Ala = segment_sequence.count('A')
@@ -124,25 +126,18 @@ for key in protein_names_and_segments.keys():
 
         t += len(segment_sequence)
 
-
-        l.append(Ala)
-
+        l.append(Gly)
 
     a = sum(l[1:])
 
     l.insert(1, a)
     l.insert(2, t)
-    print ', '.join(str(i) for i in l[0:3])
+    # print ', '.join(str(i) for i in l[0:3])
 
+    output_file.write(', '.join(str(i) for i in l[0:3]) + '\n')
 
-    # output_file.write(', '.join(str(i) for i in l) + '\n')
+    # output_file.write(key + '\t' + str(segment[0]) + '\t' + str(segment[1]) + '\t' + segment_sequence + '\t' + str(len(segment_sequence)) + '\t' + str(Gly) + '\t' + str(Ala) + '\t' +  str(Cys) + '\t' + str(Trp) + '\t' + str(Tyr) + '\t' + str(Pro) + '\t' + str(Thr) + '\t' + str(Ser) + '\t' + str(Asn) + '\t' + str(Gln) + '\t' + str(Asp) + '\t' + str(Glu) + '\t' + str(His) + '\t' + str(Lys) + '\t' + str(Arg) + '\t' + str(Met) + '\t' + str(Phe) + '\t' + str(Leu) + '\t' + str(Val) + '\t' + str(Ile) + '\n')
 
-
-        # output_file.write(key + '\t' + str(segment[0]) + '\t' + str(segment[1]) + '\t' + segment_sequence + '\t' + str(len(segment_sequence)) + '\t' + str(Gly) + '\t' + str(Ala) + '\t' +  str(Cys) + '\t' + str(Trp) + '\t' + str(Tyr) + '\t' + str(Pro) + '\t' + str(Thr) + '\t' + str(Ser) + '\t' + str(Asn) + '\t' + str(Gln) + '\t' + str(Asp) + '\t' + str(Glu) + '\t' + str(His) + '\t' + str(Lys) + '\t' + str(Arg) + '\t' + str(Met) + '\t' + str(Phe) + '\t' + str(Leu) + '\t' + str(Val) + '\t' + str(Ile) + '\n')
-
-
-
-        # output_file.write(key + '\t' + str(segment[0]) + '\t' + str(segment[1]) + '\t' + segment_sequence + '\t' + str(len(segment_sequence)) + '\t' + 'Gly' + '\t' + str(Gly) + '\t' + 'Ala' + '\t' + str(Ala) + '\t' + 'Cys' + '\t' + str(Cys) + '\t' + 'Trp' + '\t' + str(Trp) + '\t' + 'Tyr' + '\t' + str(Tyr) + '\t' + 'Pro' + '\t' + str(Pro) + '\t' + 'Thr' + '\t' + str(Thr) + '\t' + 'Ser' + '\t' + str(Ser) + '\t' + 'Asn' + '\t' + str(Asn) + '\t' + 'Gln' + '\t' + str(Gln) + '\t' + 'Asp' + '\t' + str(Asp) + '\t' + 'Glu' + '\t' + str(Glu) + '\t' + 'His' + '\t' + str(His) + '\t' + 'Lys' + '\t' + str(Lys) + '\t' + 'Arg' + '\t' + str(Arg) + '\t' + 'Met' + '\t' + str(Met) + '\t' + 'Phe' + '\t' + str(Phe) + '\t' + 'Leu' + '\t' + str(Leu) + '\t' + 'Val' + '\t' + str(Val) + '\t' + 'Ile' + '\t' + str(Ile) + '\n')
 
 sequence_file.close()
 output_file.close()
