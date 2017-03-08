@@ -48,9 +48,11 @@ And calculate the amino acid percent, per segment, of all the protiens in the gi
 
 Note: there can be more than one protein in each file, like mine, see `BetaBarrelTrimericSeq.txt`
 
-1. Open Terminal and enter `python percent_AA_per_seg_parser.py`
-2. Enter the file you wish to parse, when prompted, then press enter.
-3. The CSV ouput will open automatically in your native application.
+1. Clone this repository.
+2. Open Terminal, `cd` into the directory where `python percent_AA_per_seg_parser.py` is.
+3. Type `python percent_AA_per_seg_parser.py` and click enter.
+4. Enter the file you wish to parse, when prompted, then press enter.
+5. The CSV ouput will open automatically in your native application, for most thats Microsoft Excel.
 
 This tool was built for macOS but should work on Windows and Linux as well.
 
