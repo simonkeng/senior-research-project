@@ -21,5 +21,38 @@ That was until we decided to investigate the [helical propensity scale](https://
 
 Using [Biopython](http://biopython.org/wiki/Documentation), several new command line tools were built for analyzing the amino acid composition of our datasets. This research is still in progress and being updated frequently.
 
+### Instructions for running percent_AA_per_seg_parser.py
+
+This command line tool will parse through a FASTA file with this format:
+
+```
+>1NEQ:A.137,145; B.149,159; C.164,175; D.197,209; E.214,227; F.243,257; G.261,276; H.289,305; I.309,322; J.334,348; K.351,362; L.366,380; M.383,394; N.413,426; O.429,447; P.452,472; Q.475,488; R.501,510; S.515,523; T.544,554; U.559,566; V.585,594
+QDTSPDTLVVTANRFEQPRSTVLAPTTVVTRQDIDRWQSTSVNDVLR
+RLPGVDITQNGGSGQLSSIFIRGTNASHVLVLIDGVRLNLAGVSGS
+ADLSQFPIALVQRVEYIRGPRSAVYGSDAIGGVVNIITTRDEPGTE
+ISAGWGSNSYQNYDVSTQQQLGDKTRVTLLGDYAHTHGYDVVAYGN
+TGTQAQTDNDGFLSKTLYGALEHNFTDAWSGFVRGYGYDNRTNYDA
+YYSPGSPLLDTRKLYSQSWDAGLRYNGELIKSQLITSYSHSKDYNY
+DPHYGRYDSSATLDEMKQYTVQWANNVIVGHGSIGAGVDWQKQTTT
+PGTGYVEDGYDQRNTGIYLTGLQQVGDFTFEGAARSDDNSQFGRHG
+TWQTSAGWEFIEGYRFIASYGTSYKAPNLGQLYGFYGNPNLDPEKS
+KQWEGAFEGLTAGVNWRISGYRNDVSDLIDYDDHTLKYYNEGKARI
+KGVEATANFDTGPLTHTVSYDYVDARNAITDTPLLRRAKQQVKYQL
+DWQLYDFDWGITYQYLGTRYDKDYSSYPYQTVKMGGVSLWDLAVAY
+PVTSHLTVRGKIANLFDKDYETVYGYQTAGREYTLSGSYTF
+
+```
+
+
+And calculate the amino acid percent, per segment, of all the protiens in the given input file.
+
+Note: there can be more than one protein in each file, like mine, see `BetaBarrelTrimericSeq.txt`
+
+1. Open Terminal and enter `python percent_AA_per_seg_parser.py`
+2. Enter the file you wish to parse, when prompted, then press enter.
+3. The CSV ouput will open automatically in your native application.
+
+This tool was built for macOS but should work on Windows and Linux as well.
+
 
 For any questions, please contact me via [LinkedIn](https://www.linkedin.com/in/simonkeng).
